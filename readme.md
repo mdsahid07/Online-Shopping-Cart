@@ -18,22 +18,15 @@ An online shopping system must be able to store information about the customers 
 ## Testing with coverage
 ![img_1.png](img_1.png)
 
-## View my Slide Presentation
-[You can view here](https://docs.google.com/presentation/d/1fes2vVBcIohEeU6ON1-hpZBLUW12eO4X/edit#slide=id.p21)
 
 ##my db server username & pwd
 - in used
-  - dbname: shop
-  - pwd: admin@123
+  - dbname: user
+  - pwd: test1234
 
 - server2 (not use currently)
-  - usenmae:shopadmin
-  - pwd:super123@
-
-- my aws server (not use curretnly)
-  - db:shopdb
-  - user: shop
-  - pwd: password123
+  - usenmae:admin
+  - pwd:test1234
 
 ## Contributing
 
