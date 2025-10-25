@@ -35,5 +35,11 @@ public class CartController {
             cartService.addToCart(cartRequest);
             return ResponseEntity.ok("Product added to the cart successfully.");
     }
+    @DeleteMapping("/remove/{cartId}")
+    public ResponseEntity<String> removeFromCart(@PathVariable int cartId)
+            throws CustomerNotFoundException, ProductNotFoundException {
+        cartService.removeFromCart(cartId);
+        return ResponseEntity.ok("Product removed from the cart successfully.");
+    }
 
 }

@@ -11,4 +11,6 @@ public interface CartService {
     List<CartResponse> findAllCart();
 
     void addToCart(CartRequest cartRequest) throws ProductNotFoundException, CustomerNotFoundException;
+
+    void removeFromCart(int cartId);
 }

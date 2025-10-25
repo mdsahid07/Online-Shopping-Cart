@@ -1,5 +1,6 @@
 package miu.edu.cs489.shopping.onlineshoppingcart.service.imp;
 
+import jakarta.transaction.Transactional;
 import miu.edu.cs489.shopping.onlineshoppingcart.dto.cart.CartRequest;
 import miu.edu.cs489.shopping.onlineshoppingcart.dto.cart.CartResponse;
 import miu.edu.cs489.shopping.onlineshoppingcart.dto.category.CategoryResponse;
@@ -97,6 +98,19 @@ public class CartServiceImp implements CartService {
         Cart cart = new Cart(product,customer,productQuantity);
         cartRepository.save(cart);
 
+    }
+    @Override
+    @Transactional
+    public void removeFromCart(int cartId) {
+        var cart = cartRepository.findById(cartId)
+                .orElseThrow(() -> new IllegalArgumentException("Cart item not found: " + cartId));
+
+        // restore product stock
+        var product = cart.getProduct();
+        product.setStock(product.getStock() + cart.getQuantity());
+
+        // delete cart row
+        cartRepository.delete(cart);
     }
 
 }
